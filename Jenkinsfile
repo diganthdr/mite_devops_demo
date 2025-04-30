@@ -55,7 +55,7 @@ pipeline {
                     sleep 5
                     
                     # Check if the application is running
-                    curl -s http://localhost:8888> /dev/null || exit 1
+                    curl -s http://localhost:8000> /dev/null || exit 1
                 """
             }
         }
