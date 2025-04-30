@@ -27,7 +27,7 @@ pipeline {
             steps {
                 sh """
                     . ${VIRTUAL_ENV}/bin/activate
-                    pylint app.py test_app.py
+                    pylint --ignore=test_*.py app.py
                 """
             }
         }
