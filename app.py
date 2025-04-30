@@ -9,7 +9,7 @@ def home():
 
 @app.route('/api/v1/generate', methods=['GET'])
 def generate_number():
-    number = random.randint(1, 100)
+    number = random.randint(10000, 100000)
     return jsonify({'number': number})
 
 if __name__ == '__main__':
