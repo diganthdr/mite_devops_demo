@@ -36,7 +36,7 @@ def generate_number():
     Generate a random number between 10000 and 100000
     """
     REQUEST_COUNT.inc()  # Increment Prometheus counter
-    number = random.randint(10000, 100000)
+    number = random.randint(100000, 1000000)
     return jsonify({'number': number})
 
 @app.route('/metrics', methods=['GET'])
