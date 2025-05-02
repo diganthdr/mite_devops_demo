@@ -26,8 +26,7 @@ def health_check():
         response = generate_number()
         if response.status_code == 200:
             return jsonify({'status': 'healthy'}), 200
-        else:
-            return jsonify({'status': 'unhealthy'}), 500
+        return jsonify({'status': 'unhealthy'}), 500
     except ValueError as e:
         return jsonify({'status': 'unhealthy', 'error': str(e)}), 500
 
