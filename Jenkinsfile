@@ -59,6 +59,14 @@ pipeline {
                 """
             }
         }
+
+        stage('Run Flask App and Prometheus') {
+            steps {
+                echo 'Starting Flask App and Prometheus...'
+                sh 'nohup python3 app.py &'
+                sh 'nohup prometheus --config.file=prometheus.yml &'
+            }
+        }
     }
 
     post {
@@ -72,4 +80,4 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-} 
+}
