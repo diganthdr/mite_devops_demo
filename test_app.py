@@ -18,5 +18,5 @@ def test_generate_route(client):
     data = response.get_json()
     assert 'number' in data
     assert isinstance(data['number'], int)
-    assert 10000 <= data['number'] <= 100000
+    assert 100000 <= data['number'] <= 1000000
     # assert 1 <= data['number'] <= 100 
