@@ -60,17 +60,10 @@ pipeline {
             }
         }
 
-        stage('Run Flask App and Prometheus') {
+        stage('Run Prometheus') {
             steps {
-                echo 'Starting Flask App and Prometheus...'
-                sh 'nohup python3 app.py > flask_app.log 2>&1 &'
+                echo 'Starting Prometheus...'
                 sh 'nohup prometheus --config.file=prometheus.yml > prometheus.log 2>&1 &'
-
-                // Wait for Flask App to start
-                sh 'sleep 5'
-
-                // Check if Flask App is running
-                sh 'curl -s http://localhost:8000 > /dev/null || (echo "Flask App failed to start" && exit 1)'
 
                 // Check if Prometheus is running
                 sh 'curl -s http://localhost:9090 > /dev/null || (echo "Prometheus failed to start" && exit 1)'
