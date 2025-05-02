@@ -32,9 +32,6 @@ def health_check():
 
 @app.route('/api/v1/generate', methods=['GET'])
 def generate_number():
-    """
-    Generate a random number between 10000 and 100000
-    """
     REQUEST_COUNT.inc()  # Increment Prometheus counter
     number = random.randint(100000, 1000000)
     return jsonify({'number': number})
